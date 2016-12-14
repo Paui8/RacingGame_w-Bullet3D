@@ -33,9 +33,6 @@ bool ModuleSceneIntro::Start()
 	wallRini.axis = true;
 
 
-
-
-
 	Cube wallRini2(2, 3, 40);
 	wallRini2.SetPos(-10, 1, 30);
 	App->physics->AddBody(wallRini2, 1000000);
@@ -148,6 +145,46 @@ bool ModuleSceneIntro::Start()
 	Cube platform(60, 2, 30);
 	platform.SetPos(20, 10, -20);
 	App->physics->AddBody(platform, 0);
+
+	Cube platformWall(60, 2, 2);
+	platformWall.SetPos(20, 12, -6);
+	App->physics->AddBody(platformWall, 0);
+
+	Cube platformWall2(60, 2, 2);
+	platformWall2.SetPos(20, 12, -34);
+	App->physics->AddBody(platformWall2, 0);
+
+	//down again
+	Cube wallD(110, 3, 2);
+	wallD.SetPos(70, 1, -6);
+	App->physics->AddBody(wallD, 0);
+
+	Cube wallD2(80, 3, 2);
+	wallD2.SetPos(70, 1, -34);
+	App->physics->AddBody(wallD2, 0);
+	
+	//curve
+	Cube wallC(2, 3, 50);
+	wallC.SetPos(124, 1, -32);
+	App->physics->AddBody(wallC, 0);
+
+	//enlargment
+	Cube wallDa(40, 3, 2);
+	wallDa.SetPos(30, 1, -34);
+	App->physics->AddBody(wallDa, 0);
+
+	Cube wallDa2(145, 3, 2);
+	wallDa2.SetPos(50, 1, -55);
+	App->physics->AddBody(wallDa2, 0);
+	
+	//finalLine
+	Cube FinalWall(2, 3, 45);
+	FinalWall.SetPos(10, 1, -12);
+	App->physics->AddBody(FinalWall, 1000000);
+
+	Cube FinalWall2(2, 3, 64);
+	FinalWall2.SetPos(-10, 1, -24);
+	App->physics->AddBody(FinalWall2, 1000000);
 
 	return ret;
 }
