@@ -18,7 +18,8 @@ bool ModuleSceneIntro::Start()
 {
 	LOG("Loading Intro assets");
 	bool ret = true;
-
+	bool plane = true;
+	count = 0;
 
 	App->camera->Move(vec3(1.0f, 100.0f, 60.0f));
 	App->camera->LookAt(vec3(0, 0, 60));
@@ -27,29 +28,36 @@ bool ModuleSceneIntro::Start()
 	Cube wallRini(2, 3, 40);
 	wallRini.SetPos(10, 1, 30);
 	App->physics->AddBody(wallRini, 1000000);
+	wallRini.wire = true;
+	wallRini.color = Red;
+	wallRini.axis = true;
+
+
+
+
 
 	Cube wallRini2(2, 3, 40);
 	wallRini2.SetPos(-10, 1, 30);
 	App->physics->AddBody(wallRini2, 1000000);
 
-	
+
 	//false Rotonda inicial (fRot)(ini)
-//palo del medio	
+	//palo del medio	
 	Cube fRotini(2, 3, 40);
 	fRotini.SetPos(0, 1, 65);
 	fRotini.SetRotation(-90, vec3(0, 1, 0));
 	App->physics->AddBody(fRotini, 1000000);
-//apertura
+	//apertura
 	Cube fRotini2(2, 3, 18);
 	fRotini2.SetPos(-20, 1, 50);
 	fRotini2.SetRotation(-90, vec3(0, 1, 0));
 	App->physics->AddBody(fRotini2, 1000000);
-	
+
 	Cube fRotini3(2, 3, 20);
 	fRotini3.SetPos(20, 1, 50);
 	fRotini3.SetRotation(-90, vec3(0, 1, 0));
 	App->physics->AddBody(fRotini3, 1000000);
-//parte izquierda
+	//parte izquierda
 	Cube fRotinileftRb(2, 3, 10);
 	fRotinileftRb.SetPos(30, 1, 75);
 	App->physics->AddBody(fRotinileftRb, 1000000);
@@ -62,7 +70,7 @@ bool ModuleSceneIntro::Start()
 	fRotiniTopR.SetPos(20, 1, 80);
 	fRotiniTopR.SetRotation(-90, vec3(0, 1, 0));
 	App->physics->AddBody(fRotiniTopR, 1000000);
-//parte derecha
+	//parte derecha
 	//Cube fRotiniright1(2, 3, 10);
 	//fRotiniright1.SetPos(-30, 1, 75);
 	//App->physics->AddBody(fRotiniright1, 1000000);
@@ -76,7 +84,7 @@ bool ModuleSceneIntro::Start()
 	fRotiniright3.SetRotation(-90, vec3(0, 1, 0));
 	App->physics->AddBody(fRotiniright3, 1000000);
 
-// Rexta post rotonda (R)()
+	// Rexta post rotonda (R)()
 	Cube wallRR(2, 3, 60);
 	wallRR.SetPos(10, 1, 110);
 	App->physics->AddBody(wallRR, 1000000);
@@ -85,13 +93,13 @@ bool ModuleSceneIntro::Start()
 	wallRR2.SetPos(-10, 1, 100);
 	App->physics->AddBody(wallRR2, 1000000);
 
-//Recta a la derecha
+	//Recta a la derecha
 	Cube wallRaD(2, 3, 80);
 	wallRaD.SetPos(-30, 1, 140);
 	wallRaD.SetRotation(-90, vec3(0, 1, 0));
 	App->physics->AddBody(wallRaD, 1000000);
 
-//recta S
+	//recta S
 	Cube wallS1(2, 3, 40);
 	wallS1.SetPos(-30, 1, 120);
 	App->physics->AddBody(wallS1, 1000000);
@@ -104,12 +112,12 @@ bool ModuleSceneIntro::Start()
 	wallS3.SetPos(-70, 1, 110);
 	App->physics->AddBody(wallS3, 1000000);*/
 
-//recta aceleracion con cosas(baches o algo)
+	//recta aceleracion con cosas(baches o algo)
 	Cube wallA(2, 3, 180);
 	wallA.SetPos(-70, 1, 50);
 	App->physics->AddBody(wallA, 1000000);
 
-// giro derecha
+	// giro derecha
 	Cube wallG(2, 3, 120);
 	wallG.SetPos(-90, 1, -60);
 	wallG.SetRotation(-90, vec3(0, 1, 0));
@@ -145,10 +153,40 @@ update_status ModuleSceneIntro::Update(float dt)
 {
 	Plane p(0, 1, 0, 0);
 	p.axis = true;
+	
+	//if (plane) {
+
+	//	p.c
+
+	//}
+	
 	p.Render();
 
-	
 
+
+	Cube wall6(2.2f, 3, 40);
+	wall6.SetPos(0, 0, 30);
+
+	wall6.wire = false;
+	wall6.color = Green;
+	wall6.Scale(1, 0, 1);
+	wall6.Render();
+	
+	// Rexta inicial (R)(ini)
+	Cube wall1(2.2f, 3, 40);
+	wall1.SetPos(10, 1.3f, 30);
+
+	wall1.wire = false;
+	wall1.color = Red;
+	wall1.Render();
+
+
+
+
+
+	Cube wall2(2, 3, 40);
+	wall2.SetPos(-10, 1, 30);
+	wall2.Render();
 
 	/*Cube wall2b(2, 3, 10);
 	wall2b.SetPos(-15, 1, 54);

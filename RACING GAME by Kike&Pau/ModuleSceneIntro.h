@@ -9,6 +9,7 @@
 
 struct PhysBody3D;
 struct PhysMotor3D;
+class Cube;
 
 class ModuleSceneIntro : public Module
 {
@@ -44,4 +45,8 @@ public:
 
 	PhysMotor3D* left_wheel;
 	PhysMotor3D* right_wheel;
+
+	int count;
+	bool plane;
+	
 };
