@@ -137,6 +137,18 @@ bool ModuleSceneIntro::Start()
 	wallG3.SetRotation(-90, vec3(0, 1, 0));
 	App->physics->AddBody(wallG3, 1000000);
 
+	//ramp
+	Cube wallRamp(60, 2, 30);
+	wallRamp.SetPos(-80, 0, -20);
+	
+	wallRamp.SetRotation(20, vec3(0, 0, 1));
+	App->physics->AddBody(wallRamp, 0);
+
+	//pltform
+	Cube platform(60, 2, 30);
+	platform.SetPos(20, 10, -20);
+	App->physics->AddBody(platform, 0);
+
 	return ret;
 }
 
